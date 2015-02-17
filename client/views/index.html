@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="watchesApp"> 
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>The Watch Store</title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+  
+      <div ng-controller="watchesController">
+        <h1>There are {{watches.length}} watches</h1>
+        <ul>
+          <li ng-repeat="watch in watches">
+              {{watch.brand}} delivers you: {{watch.name}} in {{watch.colour}} for only {{watch.price}}
+              <!-- something todo with {{watch._id}} -->
+              <button type="button" ng-click="removeWatch()">Remove</button>
+          </li>
+
+        </ul>
+        <form ng-submit="createWatch()">
+            <input type="text" placeholder="Watch name" ng-model="watchName">
+            <input type="text" placeholder="Watch brand" ng-model="watchBrand">
+            <input type="decimal" placeholder="R00.00" ng-model="watchPrice">
+            <input type="text" placeholder="Watch colour" ng-model="watchColour">
+            <button type="submit">Add</button>
+        </form> 
+      </div>
+
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-resource.js"></script>
+
+      <script type="text/javascript" src="/js/app.js"></script>
+      <script type="text/javascript" src="/js/controllers/watches-controller.js"></script>
+  </body>
+</html>
+
+<!-- https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js -->
