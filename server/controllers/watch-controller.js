@@ -8,6 +8,9 @@ module.exports.create = function (req, res) {
 }
 
 module.exports.list = function (req, res) {
+    // Technically you should not use the body of a GET to alter a response (HTTP 1.1 Spec)
+    // But it would be possible to read parameters off the request and filter the res(ponse) with the appropriate result
+    // Other option is to make controls that define angular filters on a page - see filters and search on index.html
   Watch.find({}, function (err, results) {
     res.json(results);
   });

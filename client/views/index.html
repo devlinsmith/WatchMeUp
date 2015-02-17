@@ -10,9 +10,10 @@
   <body>
   
       <div ng-controller="watchesController">
-        <h1>There are {{watches.length}} watches</h1>
+        <h1>There are {{watches.length}} watches in store</h1>
+          <input type="text" ng-model="searchText">
         <ul>
-          <li ng-repeat="watch in watches">
+          <li ng-repeat="watch in watches | filter:searchText">
               {{watch.brand}} delivers you: {{watch.name}} in {{watch.colour}} for only {{watch.price}}
               <!-- something todo with {{watch._id}} -->
               <button type="button" ng-click="removeWatch()">Remove</button>
